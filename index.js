@@ -101,7 +101,7 @@ const serializers = {
     return `${line} PR ${toUrlFormat(item)} in ${toUrlFormat(item.repo.name)}`;
   },
   ReleaseEvent: (item) => {
-    return `🚀 ${capitalize(item.payload.action)} release ${toUrlFormat(item)} in ${toUrlFormat(item.repo.name)}`;
+    return `🚀 ${capitalize(item.payload.action)} release test ${toUrlFormat(item)} in ${toUrlFormat(item.repo.name)}`;
   },
 };
 
