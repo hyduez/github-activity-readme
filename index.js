@@ -38,7 +38,7 @@ const toUrlFormat = (item) => {
       ? `[#${item.payload.pull_request.number}](${urlPrefix}/${item.repo.name}/pull/${item.payload.pull_request.number})`
       : `[${
           item.payload.release.name ?? item.payload.release.tag_name
-        }](${urlPrefix}/${item.release.repo.name})`;
+        }](${urlPrefix}/${item.repo.name})`;
   }
   return `[${item}](${urlPrefix}/${item})`;
 };

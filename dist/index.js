@@ -20373,7 +20373,9 @@ const toUrlFormat = (item) => {
       ? `[#${item.payload.issue.number}](${urlPrefix}/${item.repo.name}/issues/${item.payload.issue.number})`
       : Object.hasOwnProperty.call(item.payload, "pull_request")
       ? `[#${item.payload.pull_request.number}](${urlPrefix}/${item.repo.name}/pull/${item.payload.pull_request.number})`
-      : `[${item.payload.release.name ?? item.payload.release.tag_name}](${urlPrefix}/${item.release.repo.name})`
+      : `[${
+          item.payload.release.name ?? item.payload.release.tag_name
+        }](${urlPrefix}/${item.repo.name})`;
   }
   return `[${item}](${urlPrefix}/${item})`;
 };
@@ -20438,7 +20440,9 @@ const serializers = {
     return `${line} PR ${toUrlFormat(item)} in ${toUrlFormat(item.repo.name)}`;
   },
   ReleaseEvent: (item) => {
-    return `🚀 ${capitalize(item.payload.action)} release test ${toUrlFormat(item)} in ${toUrlFormat(item.repo.name)}`;
+    return `🚀 ${capitalize(item.payload.action)} release test ${toUrlFormat(
+      item
+    )} in ${toUrlFormat(item.repo.name)}`;
   },
 };
 
