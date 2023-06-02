@@ -38,7 +38,9 @@ const toUrlFormat = (item) => {
       ? `[#${item.payload.pull_request.number}](${urlPrefix}/${item.repo.name}/pull/${item.payload.pull_request.number})`
       : `[${
           item.payload.release.name ?? item.payload.release.tag_name
-        }](${urlPrefix}/${item.repo.name})`;
+        }](${urlPrefix}/${item.repo.name}/releases/tag/${
+          item.payload.release.tag_name
+        })`;
   }
   return `[${item}](${urlPrefix}/${item})`;
 };
@@ -103,7 +105,7 @@ const serializers = {
     return `${line} PR ${toUrlFormat(item)} in ${toUrlFormat(item.repo.name)}`;
   },
   ReleaseEvent: (item) => {
-    return `🚀 ${capitalize(item.payload.action)} release test ${toUrlFormat(
+    return `🚀 ${capitalize(item.payload.action)} release ${toUrlFormat(
       item
     )} in ${toUrlFormat(item.repo.name)}`;
   },
