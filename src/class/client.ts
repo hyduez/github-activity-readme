@@ -20,6 +20,7 @@ export class Action {
       CommitCommentEvent: core.getInput('EVENT_COMMIT_COMMENT').toLowerCase() === 'true',
       CreateEvent: core.getInput('EVENT_CREATE').toLowerCase() === 'true',
       DeleteEvent: core.getInput('EVENT_DELETE').toLowerCase() === 'true',
+      ForkEvent: core.getInput('EVENT_FORK').toLocaleLowerCase() === 'true',
       IssuesEvent: core.getInput('EVENT_ISSUES').toLowerCase() === 'true',
       PullRequestEvent: core.getInput('EVENT_PULL_REQUEST').toLowerCase() === 'true',
       ReleaseEvent: core.getInput('EVENT_RELEASE').toLowerCase() === 'true'
