@@ -7,30 +7,41 @@ export class Formatter {
     CommitCommmentEvent: (item) => {
       const origin = this.parseLink(item)
       const repository = this.parseLink(item.repo.name)
-      const action = item.payload.action === 'created' ? `${Emojis.CommitCommentEventCreated} Commented` : null
-      const line = `> ${action} on ${origin} in ${repository}`
+      const type = item.payload.action
+      const action = type === 'created' ? `${Emojis.CommitCommentEventCreated} Commented` : null
+      const line = `${action} on ${origin} in ${repository}`
+      return line
+    },
+    CreateEvent: (item) => {
+      const origin = this.parseLink(item)
+      const repository = this.parseLink(item.repo.name)
+      const localeAction = this.localeUpperCase(item.payload.action)
+      const type = item.payload.ref_type === 'branch'
+      const action = type ? `${type ? Emojis.CreateEventBranch : Emojis.CreateEventTag} Created` : null
+      const line = `${action} ${origin} ${type ? 'branch' : 'tag'} in ${repository}`
       return line
     },
     IssuesEvent: (item) => {
       const origin = this.parseLink(item)
       const repository = this.parseLink(item.repo.name)
       const localeAction = this.localeUpperCase(item.payload.action)
+      const type: string = item.payload.action
       const action =
-        item.payload.action === 'opened'
+        type === 'opened'
           ? `${Emojis.IssueEventOpened} ${localeAction}`
-          : item.payload.action === 'edited'
+          : type === 'edited'
           ? `${Emojis.IssueEventEdited} ${localeAction}`
-          : item.payload.action === 'closed'
+          : type === 'closed'
           ? `${Emojis.IssueEventClosed} ${localeAction}`
-          : item.payload.action === 'reopened'
+          : type === 'reopened'
           ? `${Emojis.IssueEventReopened} ${localeAction}`
-          : item.payload.action === 'assigned'
+          : type === 'assigned'
           ? `${Emojis.IssueEventAssigned} ${localeAction}`
-          : item.payload.action === 'unassigned'
+          : type === 'unassigned'
           ? `${Emojis.IssueEventUnassigned} ${localeAction}`
-          : item.payload.action === 'labeled'
+          : type === 'labeled'
           ? `${Emojis.IssueEventLabeled} ${localeAction}`
-          : item.payload.action === 'unlabeled'
+          : type === 'unlabeled'
           ? `${Emojis.IssueEventUnlabeled} ${localeAction}`
           : null
       const line = `${action} ${origin} in ${repository}`
@@ -40,29 +51,31 @@ export class Formatter {
       const origin = this.parseLink(item)
       const repository = this.parseLink(item.repo.name)
       const localeAction = this.localeUpperCase(item.payload.action)
-      const action = item.payload.pull_request.merged
+      const type = item.payload.action
+      const merged = item.payload.pull_request.merged
+      const action = merged
         ? `${Emojis.PullRequestEventMerged} Merged`
-        : item.payload.action === 'opened'
+        : type === 'opened'
         ? `${Emojis.PullRequestEventOpened} ${localeAction}`
-        : item.payload.action === 'edited'
+        : type === 'edited'
         ? `${Emojis.PullRequestEventEdited} ${localeAction}`
-        : item.payload.action === 'closed'
+        : type === 'closed'
         ? `${Emojis.PullRequestEventClosed} ${localeAction}`
-        : item.payload.action === 'reopened'
+        : type === 'reopened'
         ? `${Emojis.PullRequestEventReopened} ${localeAction}`
-        : item.payload.action === 'assigned'
+        : type === 'assigned'
         ? `${Emojis.PullRequestEventAssigned} ${localeAction}`
-        : item.payload.action === 'unassigned'
+        : type === 'unassigned'
         ? `${Emojis.PullRequestEventUnassigned} ${localeAction}`
-        : item.payload.action === 'review_requested'
+        : type === 'review_requested'
         ? `${Emojis.PullRequestEventReviewRequested} ${localeAction}`
-        : item.payload.action === 'review_request_removed'
+        : type === 'review_request_removed'
         ? `${Emojis.PullRequestEventReviewRequestRemoved} ${localeAction}`
-        : item.payload.action === 'labeled'
+        : type === 'labeled'
         ? `${Emojis.PullRequestEventLabeled} ${localeAction}`
-        : item.payload.action === 'unlabeled'
+        : type === 'unlabeled'
         ? `${Emojis.IssueEventUnlabeled} ${localeAction}`
-        : item.payload.action === 'synchronize'
+        : type === 'synchronize'
         ? `${Emojis.PullRequestEventSynchronize}`
         : null
       const line = `${action} ${origin} in ${repository}`
@@ -72,7 +85,8 @@ export class Formatter {
       const origin = this.parseLink(item)
       const repository = this.parseLink(item.repo.name)
       const localeAction = this.localeUpperCase(item.payload.action)
-      const action = item.payload.action === 'published' ? `${Emojis.ReleaseEventCreated} ${localeAction}` : null
+      const type = item.payload.action
+      const action = type === 'published' ? `${Emojis.ReleaseEventCreated} ${localeAction}` : null
       const line = `${action} ${origin} in ${repository}`
       return line
     }
@@ -84,6 +98,8 @@ export class Formatter {
     if (typeof item === 'object') {
       return 'comment' in item.payload
         ? `[${item.payload.comment.path}](${item.payload.comment.html_url})`
+        : 'ref' in item.payload
+        ? `[${item.payload.ref}](${this.parseLink(item.repo.name)}/tree/${item.payload.ref})`
         : 'issue' in item.payload
         ? `[#${item.payload.issue.number}](${item.payload.issue.html_url})`
         : 'pull_request' in item.payload

@@ -1,7 +1,7 @@
 import { Toolkit } from 'actions-toolkit'
+import { readFileSync, writeFileSync } from 'node:fs'
 import { CommitOpts, Item } from '../config'
 import { Formatter } from './formatter'
-import { readFileSync, writeFileSync } from 'node:fs'
 import { Commander } from './commander'
 
 export class Writer {
@@ -27,23 +27,19 @@ export class Writer {
 
         let startIdx = readmeContent.findIndex((content) => content.trim() === '<!--START_SECTION:activity-->')
 
-        if (startIdx === -1) {
+        if (startIdx === -1)
           return tools.exit.failure(`Couldn't find the <!--START_SECTION:activity--> comment. Exiting!`)
-        }
 
         const endIdx = readmeContent.findIndex((content) => content.trim() === '<!--END_SECTION:activity-->')
 
-        if (!content.length) {
-          tools.exit.success('No events found. Leaving README unchanged with previous activity')
-        }
+        if (!content.length) tools.exit.success('No events found. Leaving README unchanged with previous activity')
 
-        if (content.length < 5) {
-          tools.log.info('Found less than 5 activities')
-        }
+        if (content.length < 5) tools.log.info('Found less than 5 activities')
 
         if (startIdx !== -1 && endIdx === -1) {
           startIdx++
-          content.forEach((line: any, idx: number) => readmeContent.splice(startIdx + idx, 0, `${idx + 1}. ${line}`))
+
+          content.forEach((line: any, idx: number) => readmeContent.splice(startIdx + idx, 0, `> ${idx + 1}. ${line}`))
 
           readmeContent.splice(startIdx + content.length, 0, '<!--END_SECTION:activity-->')
 
@@ -71,21 +67,23 @@ export class Writer {
             if (!line) {
               return true
             }
+
             readmeContent.splice(startIdx + idx, 0, `> ${idx + 1}. ${line}`)
           })
+
           tools.log.success(`Wrote to ${opts.target_file}`)
         } else {
           let count = 0
 
           readmeActivitySection.some((line, idx) => {
-            if (!content[count]) {
-              return true
-            }
+            if (!content[count]) return true
+
             if (line !== '') {
               readmeContent[startIdx + idx] = `> ${count + 1}. ${content[count]}`
               count++
             }
           })
+
           tools.log.success(`Updated ${opts.target_file} with the recent activity`)
         }
 
@@ -97,6 +95,7 @@ export class Writer {
           tools.log.debug('Something went wrong')
           return tools.exit.failure(err)
         }
+
         tools.exit.success('Pushed to remote repository')
       },
       {
