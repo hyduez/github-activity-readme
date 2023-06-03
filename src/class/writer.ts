@@ -19,7 +19,7 @@ export class Writer {
         tools.log.debug(`Activity for ${opts.gh_username}, ${events.data.length} events found.`)
         tools.log.debug(JSON.stringify(opts))
 
-        const content = events.data
+        const content: string[] = events.data
           .filter((event: { type: string }) => opts.validated[event.type] && event.type in formatter.EventsSerials)
           .slice(0, opts.max_lines)
           .map((item: Item) => formatter.EventsSerials[item.type](item))
@@ -40,12 +40,10 @@ export class Writer {
         if (startIdx !== -1 && endIdx === -1) {
           startIdx++
 
-          const numToRemove = startIdx + content.length
-          readmeContent.splice(startIdx, numToRemove)
+          const numToRemove = endIdx - startIdx - 1
+          readmeContent.splice(startIdx + 1, numToRemove)
 
-          content.forEach((line: any, idx: number) =>
-            readmeContent.splice(startIdx + idx, 0, `> - [x] ${idx + 1}. ${line}`)
-          )
+          content.forEach((line, idx) => readmeContent.splice(startIdx + idx, 0, `> - [x] ${idx + 1}. ${line}`))
 
           readmeContent.splice(startIdx + content.length, 0, '<!--END_SECTION:activity-->')
 
@@ -61,7 +59,7 @@ export class Writer {
         }
 
         const oldContent = readmeContent.slice(startIdx + 1, endIdx).join('\n')
-        const newContent = content.map((line: any, idx: number) => `> - [x] ${idx + 1}. ${line}`).join('\n')
+        const newContent = content.map((line, idx) => `> - [x] ${idx + 1}. ${line}`).join('\n')
 
         if (oldContent.trim() === newContent.trim()) tools.exit.success('No changes detected')
 
