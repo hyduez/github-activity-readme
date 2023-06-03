@@ -17,12 +17,12 @@ export class Action {
     max_lines: core.getInput('MAX_LINES'),
     target_file: core.getInput('TARGET_FILE'),
     validated: {
-      CommitCommentEvent: Boolean(core.getInput('EVENT_COMMIT_COMMENT')),
-      CreateEvent: Boolean(core.getInput('EVENT_CREATE')),
-      DeleteEvent: Boolean(core.getInput('EVENT_DELETE')),
-      IssuesEvent: Boolean(core.getInput('EVENT_ISSUES')),
-      PullRequestEvent: Boolean(core.getInput('EVENT_PULL_REQUEST')),
-      ReleaseEvent: Boolean(core.getInput('EVENT_RELEASE'))
+      CommitCommentEvent: core.getInput('EVENT_COMMIT_COMMENT').toLowerCase() === 'true',
+      CreateEvent: core.getInput('EVENT_CREATE').toLowerCase() === 'true',
+      DeleteEvent: core.getInput('EVENT_DELETE').toLowerCase() === 'true',
+      IssuesEvent: core.getInput('EVENT_ISSUES').toLowerCase() === 'true',
+      PullRequestEvent: core.getInput('EVENT_PULL_REQUEST').toLowerCase() === 'true',
+      ReleaseEvent: core.getInput('EVENT_RELEASE').toLowerCase() === 'true'
     }
   }
 
