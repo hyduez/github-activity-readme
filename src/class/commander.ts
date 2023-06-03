@@ -15,7 +15,7 @@ export class Commander {
   private exec(cmd: string, args: string[] = []) {
     return new Promise((resolve, reject) => {
       const app = spawn(cmd, args, { stdio: 'pipe' })
-      let stdout: string
+      let stdout = ''
 
       app.stdout.on('data', (data) => {
         stdout = data

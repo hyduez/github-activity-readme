@@ -20,6 +20,14 @@ export class Formatter {
       const line = `${action} ${origin} ${type ? 'branch' : 'tag'} in ${repository}`
       return line
     },
+    DeleteEvent: (item) => {
+      const origin = this.parseLink(item)
+      const repository = this.parseLink(item.repo.name)
+      const type = item.payload.ref_type === 'branch'
+      const action = `${type ? Emojis.DeleteEventBranch : Emojis.DeleteEventTag} Deleted`
+      const line = `${action} ${origin} ${type ? 'branch' : 'tag'} in ${repository}`
+      return line
+    },
     IssuesEvent: (item) => {
       const origin = this.parseLink(item)
       const repository = this.parseLink(item.repo.name)
@@ -98,7 +106,7 @@ export class Formatter {
       return 'comment' in item.payload
         ? `[${item.payload.comment.path}](${item.payload.comment.html_url})`
         : 'ref' in item.payload
-        ? `[${item.payload.ref}](${this.parseLink(item.repo.name)}/tree/${item.payload.ref})`
+        ? `[${item.payload.ref}](${BaseUrl}/${item.repo.name}/tree/${item.payload.ref})`
         : 'issue' in item.payload
         ? `[#${item.payload.issue.number}](${item.payload.issue.html_url})`
         : 'pull_request' in item.payload
