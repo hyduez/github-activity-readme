@@ -52,6 +52,7 @@ export interface CommitOpts {
   gh_username: string
   max_lines: string
   target_file: string
+  validated: Record<string, boolean>
 }
 
 export interface Item {

@@ -21,7 +21,7 @@ export class Writer {
         const content = events.data
           .filter((event: { type: string }) => event.type in formatter.EventsSerials)
           .slice(0, opts.max_lines)
-          .map((item: Item) => formatter.EventsSerials[item.type](item))
+          .map((item: Item) => opts.validated[item.type] && formatter.EventsSerials[item.type](item))
 
         const readmeContent = readFileSync(`./${opts.target_file}`, 'utf-8').split('\n')
 
@@ -39,7 +39,9 @@ export class Writer {
         if (startIdx !== -1 && endIdx === -1) {
           startIdx++
 
-          content.forEach((line: any, idx: number) => readmeContent.splice(startIdx + idx, 0, `> ${idx + 1}. ${line}`))
+          content.forEach((line: any, idx: number) =>
+            readmeContent.splice(startIdx + idx, 0, `> - [x] ${idx + 1}. ${line}`)
+          )
 
           readmeContent.splice(startIdx + content.length, 0, '<!--END_SECTION:activity-->')
 
@@ -55,7 +57,7 @@ export class Writer {
         }
 
         const oldContent = readmeContent.slice(startIdx + 1, endIdx).join('\n')
-        const newContent = content.map((line: any, idx: number) => `> ${idx + 1}. ${line}`).join('\n')
+        const newContent = content.map((line: any, idx: number) => `> - [x] ${idx + 1}. ${line}`).join('\n')
 
         if (oldContent.trim() === newContent.trim()) tools.exit.success('No changes detected')
 
@@ -68,7 +70,7 @@ export class Writer {
               return true
             }
 
-            readmeContent.splice(startIdx + idx, 0, `> ${idx + 1}. ${line}`)
+            readmeContent.splice(startIdx + idx, 0, `> - [x] ${idx + 1}. ${line}`)
           })
 
           tools.log.success(`Wrote to ${opts.target_file}`)

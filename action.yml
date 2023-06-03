@@ -3,13 +3,29 @@ description: Updates README with the recent GitHub activity of a user
 author: jamesgeorge007
 
 inputs:
-  GH_USERNAME:
-    description: "Your GitHub username"
-    default: ${{ github.repository_owner }}
+  EVENT_COMMIT_COMMENT:
+    description: "Enable logging for CommitCommented event"
+    default: false
     required: false
-  COMMIT_NAME:
-    description: "Name of the committer"
-    default: "github-actions[bot]"
+  EVENT_CREATE:
+    description: "Enable logging for CreateEvent event"
+    default: false
+    required: false
+  EVENT_DELETE:
+    description: "Enable logging for DeleteEvent event"
+    default: false
+    required: false
+  EVENT_ISSUES:
+    description: "Enable logging for IssuesEvent event"
+    default: true
+    required: false
+  EVENT_PULL_REQUEST:
+    description: "Enable logging for PullRequestEvent event"
+    default: true
+    required: false
+  EVENT_RELEASE:
+    description: "Enable logging for ReleaseEvent event"
+    default: true
     required: false
   COMMIT_EMAIL:
     description: "Email of the committer"
@@ -18,6 +34,14 @@ inputs:
   COMMIT_MSG:
     description: "Commit message used while committing to the repo"
     default: ":zap: Update README with the recent activity"
+    required: false
+  COMMIT_NAME:
+    description: "Name of the committer"
+    default: "github-actions[bot]"
+    required: false
+  GH_USERNAME:
+    description: "Your GitHub username"
+    default: ${{ github.repository_owner }}
     required: false
   MAX_LINES:
     description: "The maximum number of lines populated in your readme file"

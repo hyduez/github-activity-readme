@@ -15,7 +15,12 @@ export class Action {
     commit_msg: core.getInput('COMMIT_MSG'),
     gh_username: core.getInput('GH_USERNAME'),
     max_lines: core.getInput('MAX_LINES'),
-    target_file: core.getInput('TARGET_FILE')
+    target_file: core.getInput('TARGET_FILE'),
+    validated: {
+      CommitCommentEvent: Boolean(core.getInput('EVENT_COMMIT_COMMENT')),
+      CreateEvent: Boolean(core.getInput('EVENT_CREATE')),
+      DeleteEvent: Boolean(core.getInput('EVENT_DELETE'))
+    }
   }
 
   constructor() {
