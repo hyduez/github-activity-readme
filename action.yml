@@ -9,23 +9,23 @@ inputs:
     required: false
   EVENT_CREATE:
     description: "Enable logging for CreateEvent event"
-    default: false
+    default: 'false'
     required: false
   EVENT_DELETE:
     description: "Enable logging for DeleteEvent event"
-    default: false
+    default: 'false'
     required: false
   EVENT_ISSUES:
     description: "Enable logging for IssuesEvent event"
-    default: true
+    default: 'true'
     required: false
   EVENT_PULL_REQUEST:
     description: "Enable logging for PullRequestEvent event"
-    default: true
+    default: 'true'
     required: false
   EVENT_RELEASE:
     description: "Enable logging for ReleaseEvent event"
-    default: true
+    default: 'true'
     required: false
   COMMIT_EMAIL:
     description: "Email of the committer"

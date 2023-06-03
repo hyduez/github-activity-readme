@@ -20,7 +20,7 @@ export class Writer {
 
         const content = events.data
           .filter((event: { type: string }) => opts.validated[event.type] && event.type in formatter.EventsSerials)
-          .slice(0, opts.max_lines)
+          .slice(0, parseInt(opts.max_lines))
           .map((item: Item) => formatter.EventsSerials[item.type](item))
 
         const readmeContent = readFileSync(`./${opts.target_file}`, 'utf-8').split('\n')
