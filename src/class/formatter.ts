@@ -33,7 +33,7 @@ export class Formatter {
           : item.payload.action === 'unlabeled'
           ? `${Emojis.IssueEventUnlabeled} ${localeAction}`
           : null
-      const line = `> ${action} ${origin} in ${repository}`
+      const line = `${action} ${origin} in ${repository}`
       return line
     },
     PullRequestEvent: (item) => {
@@ -65,7 +65,7 @@ export class Formatter {
         : item.payload.action === 'synchronize'
         ? `${Emojis.PullRequestEventSynchronize}`
         : null
-      const line = `> ${action} ${origin} in ${repository}`
+      const line = `${action} ${origin} in ${repository}`
       return line
     },
     ReleaseEvent: (item) => {

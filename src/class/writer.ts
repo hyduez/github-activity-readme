@@ -11,7 +11,6 @@ export class Writer {
     const { opts, formatter, commander } = x
     Toolkit.run(
       async (tools) => {
-        // Get the user's public events
         tools.log.debug(`Getting activity for ${opts.gh_username}`)
         const events = await tools.github.activity.listPublicEventsForUser({
           username: opts.gh_username,
@@ -50,7 +49,6 @@ export class Writer {
 
           writeFileSync(`./${opts.target_file}`, readmeContent.join('\n'))
 
-          // Commit to the remote repository
           try {
             await commander.commitCommand(opts)
           } catch (err) {
@@ -61,7 +59,7 @@ export class Writer {
         }
 
         const oldContent = readmeContent.slice(startIdx + 1, endIdx).join('\n')
-        const newContent = content.map((line: any, idx: number) => `${idx + 1}. ${line}`).join('\n')
+        const newContent = content.map((line: any, idx: number) => `> ${idx + 1}. ${line}`).join('\n')
 
         if (oldContent.trim() === newContent.trim()) tools.exit.success('No changes detected')
 
