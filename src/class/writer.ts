@@ -65,11 +65,9 @@ export class Writer {
 
         startIdx++
 
-        // Recent GitHub Activity content between the comments
         const readmeActivitySection = readmeContent.slice(startIdx, endIdx)
         if (!readmeActivitySection.length) {
           content.some((line: any, idx: number) => {
-            // User doesn't have 5 public events
             if (!line) {
               return true
             }
@@ -77,7 +75,6 @@ export class Writer {
           })
           tools.log.success(`Wrote to ${opts.target_file}`)
         } else {
-          // It is likely that a newline is inserted after the <!--START_SECTION:activity--> comment (code formatter)
           let count = 0
 
           readmeActivitySection.some((line, idx) => {
@@ -85,7 +82,7 @@ export class Writer {
               return true
             }
             if (line !== '') {
-              readmeContent[startIdx + idx] = `${count + 1}. ${content[count]}`
+              readmeContent[startIdx + idx] = `> ${count + 1}. ${content[count]}`
               count++
             }
           })
