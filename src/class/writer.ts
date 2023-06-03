@@ -20,9 +20,7 @@ export class Writer {
         tools.log.debug(JSON.stringify(opts))
 
         const content = events.data
-          .filter(
-            (event: { type: string }) => opts.validated[event.type] === true && event.type in formatter.EventsSerials
-          )
+          .filter((event: { type: string }) => opts.validated[event.type] && event.type in formatter.EventsSerials)
           .slice(0, opts.max_lines)
           .map((item: Item) => formatter.EventsSerials[item.type](item))
 
@@ -41,6 +39,9 @@ export class Writer {
 
         if (startIdx !== -1 && endIdx === -1) {
           startIdx++
+
+          const numToRemove = startIdx + content.length
+          readmeContent.splice(startIdx, numToRemove)
 
           content.forEach((line: any, idx: number) =>
             readmeContent.splice(startIdx + idx, 0, `> - [x] ${idx + 1}. ${line}`)
