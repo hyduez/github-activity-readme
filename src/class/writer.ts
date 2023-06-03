@@ -37,12 +37,10 @@ export class Writer {
 
         if (content.length < 5) tools.log.info('Found less than 5 activities')
 
-        readmeContent.splice(startIdx + 1, startIdx + 1 + content.length)
-        tools.log.debug(readmeContent)
-        tools.log.debug(content)
-
         if (startIdx !== -1 && endIdx === -1) {
           startIdx++
+
+          readmeContent.splice(startIdx, startIdx + content.length)
 
           content.forEach((line, idx) => readmeContent.splice(startIdx + idx, 0, `> - [x] ${idx + 1}. ${line}`))
 
@@ -72,6 +70,7 @@ export class Writer {
             if (!line) {
               return true
             }
+            readmeContent.splice(startIdx, startIdx + content.length)
 
             readmeContent.splice(startIdx + idx, 0, `> - [x] ${idx + 1}. ${line}`)
           })
@@ -84,6 +83,7 @@ export class Writer {
             if (!content[count]) return true
 
             if (line !== '') {
+              readmeContent.splice(startIdx, startIdx + content.length)
               readmeContent[startIdx + idx] = `> - [x] ${count + 1}. ${content[count]}`
               count++
             }
