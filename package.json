@@ -10,7 +10,7 @@
     "format": "rome format --semicolons as-needed --quote-style single --trailing-comma none",
     "format:fix": "rome format --write --semicolons as-needed --quote-style single --trailing-comma none",
     "build": "swc src -d dist --copy-files",
-    "build:ncc": "ncc build index.js -o lib"
+    "build:ncc": "ncc build dist -o lib"
   },
   "dependencies": {
     "@actions/core": "1.2.6",

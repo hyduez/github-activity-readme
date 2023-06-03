@@ -1,1 +1,15 @@
 node_modules
+
+.yarn/install-state.gz
+.yarn/build-state.yml
+
+*.tsbuildinfo
+*.zip
+*.tar
+*.tar.xz
+*.tar.gz
+*.7z
+*.rar
+*.tgz
+
+dist
