@@ -16,7 +16,7 @@ export class Formatter {
       const origin = this.parseLink(item)
       const repository = this.parseLink(item.repo.name)
       const type = item.payload.ref_type === 'branch'
-      const action = type ? `${type ? Emojis.CreateEventBranch : Emojis.CreateEventTag} Created` : null
+      const action = `${type ? Emojis.CreateEventBranch : Emojis.CreateEventTag} Created`
       const line = `${action} ${origin} ${type ? 'branch' : 'tag'} in ${repository}`
       return line
     },
