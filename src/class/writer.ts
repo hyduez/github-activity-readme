@@ -19,9 +19,9 @@ export class Writer {
         tools.log.debug(`Activity for ${opts.gh_username}, ${events.data.length} events found.`)
 
         const content = events.data
-          .filter((event: { type: string }) => event.type in formatter.EventsSerials)
+          .filter((event: { type: string }) => opts.validated[event.type] && event.type in formatter.EventsSerials)
           .slice(0, opts.max_lines)
-          .map((item: Item) => opts.validated[item.type] && formatter.EventsSerials[item.type](item))
+          .map((item: Item) => formatter.EventsSerials[item.type](item))
 
         const readmeContent = readFileSync(`./${opts.target_file}`, 'utf-8').split('\n')
 
@@ -81,7 +81,7 @@ export class Writer {
             if (!content[count]) return true
 
             if (line !== '') {
-              readmeContent[startIdx + idx] = `> ${count + 1}. ${content[count]}`
+              readmeContent[startIdx + idx] = `> - [x] ${count + 1}. ${content[count]}`
               count++
             }
           })
