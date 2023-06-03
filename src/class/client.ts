@@ -19,7 +19,10 @@ export class Action {
     validated: {
       CommitCommentEvent: Boolean(core.getInput('EVENT_COMMIT_COMMENT')),
       CreateEvent: Boolean(core.getInput('EVENT_CREATE')),
-      DeleteEvent: Boolean(core.getInput('EVENT_DELETE'))
+      DeleteEvent: Boolean(core.getInput('EVENT_DELETE')),
+      IssuesEvent: Boolean(core.getInput('EVENT_ISSUES')),
+      PullRequestEvent: Boolean(core.getInput('EVENT_PULL_REQUEST')),
+      ReleaseEvent: Boolean(core.getInput('EVENT_RELEASE'))
     }
   }
 
