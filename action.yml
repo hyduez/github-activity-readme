@@ -15,6 +15,10 @@ inputs:
     description: "Enable logging for DeleteEvent event"
     default: "false"
     required: false
+  EVENT_FORK:
+    description: "Enable logging for ForkEvent event"
+    default: "true"
+    required: false
   EVENT_ISSUES:
     description: "Enable logging for IssuesEvent event"
     default: "true"

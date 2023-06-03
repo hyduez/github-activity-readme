@@ -28,6 +28,13 @@ export class Formatter {
       const line = `${action} ${origin} ${type ? 'branch' : 'tag'} in ${repository}`
       return line
     },
+    ForkEvent: (item) => {
+      const origin = this.parseLink(item)
+      const repository = this.parseLink(item.repo.name)
+      const action = `${Emojis.ForkEvent} Forked`
+      const line = `${action} ${repository} on ${origin}`
+      return line
+    },
     IssuesEvent: (item) => {
       const origin = this.parseLink(item)
       const repository = this.parseLink(item.repo.name)
@@ -107,6 +114,8 @@ export class Formatter {
         ? `[${item.payload.comment.path}](${item.payload.comment.html_url})`
         : 'ref' in item.payload
         ? `[${item.payload.ref}](${BaseUrl}/${item.repo.name}/tree/${item.payload.ref})`
+        : 'forkee' in item.payload
+        ? `[${item.payload.forkee.full_name}](${item.payload.html_url})`
         : 'issue' in item.payload
         ? `[#${item.payload.issue.number}](${item.payload.issue.html_url})`
         : 'pull_request' in item.payload

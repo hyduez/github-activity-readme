@@ -1,0 +1,1117 @@
+[
+  {
+    "id": "29510642834",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13860464727,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "471c1e0bd406a8264f0ced6f7088c6db2df21df0",
+      "before": "9d1ad8fd1d6188b4b03b2c595bd436527a83c394",
+      "commits": [
+        {
+          "sha": "471c1e0bd406a8264f0ced6f7088c6db2df21df0",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "refactor: improving code",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/471c1e0bd406a8264f0ced6f7088c6db2df21df0"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T22:11:02Z"
+  },
+  {
+    "id": "29510616968",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 637546999,
+      "name": "hyduez/hyduez",
+      "url": "https://api.github.com/repos/hyduez/hyduez"
+    },
+    "payload": {
+      "repository_id": 637546999,
+      "push_id": 13860447598,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "4da79c1226b0e90baa6b8dd0b84f45eec92ed16f",
+      "before": "1cb16a3aaf5ee239a7ece9e80e980190405f7989",
+      "commits": [
+        {
+          "sha": "4da79c1226b0e90baa6b8dd0b84f45eec92ed16f",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "chore: backup",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/hyduez/commits/4da79c1226b0e90baa6b8dd0b84f45eec92ed16f"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T22:06:03Z"
+  },
+  {
+    "id": "29510610439",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 637546999,
+      "name": "hyduez/hyduez",
+      "url": "https://api.github.com/repos/hyduez/hyduez"
+    },
+    "payload": {
+      "repository_id": 637546999,
+      "push_id": 13860443104,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "1cb16a3aaf5ee239a7ece9e80e980190405f7989",
+      "before": "af947750bd45fd1ce8ffe808453c65fde4efe900",
+      "commits": [
+        {
+          "sha": "1cb16a3aaf5ee239a7ece9e80e980190405f7989",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "chore: optional description",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/hyduez/commits/1cb16a3aaf5ee239a7ece9e80e980190405f7989"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T22:04:41Z"
+  },
+  {
+    "id": "29510590866",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13860430848,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "9d1ad8fd1d6188b4b03b2c595bd436527a83c394",
+      "before": "04685f93cdcffa7c5b3d8d4a880fd17d68337d5c",
+      "commits": [
+        {
+          "sha": "9d1ad8fd1d6188b4b03b2c595bd436527a83c394",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "fix: this thing just deleted my readme",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/9d1ad8fd1d6188b4b03b2c595bd436527a83c394"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T22:01:05Z"
+  },
+  {
+    "id": "29510572602",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13860419505,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "04685f93cdcffa7c5b3d8d4a880fd17d68337d5c",
+      "before": "7f9c5afa3da8a985781f5a6a104e4373beaac112",
+      "commits": [
+        {
+          "sha": "04685f93cdcffa7c5b3d8d4a880fd17d68337d5c",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "fix: now its works i think",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/04685f93cdcffa7c5b3d8d4a880fd17d68337d5c"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T21:57:46Z"
+  },
+  {
+    "id": "29510533808",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13860394856,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "7f9c5afa3da8a985781f5a6a104e4373beaac112",
+      "before": "b18a6d3878319b065b903fd7dcbfecc5b7c0336c",
+      "commits": [
+        {
+          "sha": "7f9c5afa3da8a985781f5a6a104e4373beaac112",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "fix: bad numToRemove",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/7f9c5afa3da8a985781f5a6a104e4373beaac112"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T21:49:52Z"
+  },
+  {
+    "id": "29510376109",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13860296610,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "b18a6d3878319b065b903fd7dcbfecc5b7c0336c",
+      "before": "025dfaa9d9bc1f191502d1cf39a7c02114db0cfb",
+      "commits": [
+        {
+          "sha": "b18a6d3878319b065b903fd7dcbfecc5b7c0336c",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "feat(content): remove events that do not correspond",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/b18a6d3878319b065b903fd7dcbfecc5b7c0336c"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T21:19:14Z"
+  },
+  {
+    "id": "29510302291",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13860247954,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "025dfaa9d9bc1f191502d1cf39a7c02114db0cfb",
+      "before": "f5043eb70851240416e22b2b21a0b4f2374e869d",
+      "commits": [
+        {
+          "sha": "025dfaa9d9bc1f191502d1cf39a7c02114db0cfb",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "fix: boolean always return true",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/025dfaa9d9bc1f191502d1cf39a7c02114db0cfb"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T21:05:44Z"
+  },
+  {
+    "id": "29510273634",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13860228428,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "f5043eb70851240416e22b2b21a0b4f2374e869d",
+      "before": "cf525fbc1c361b4144512261068a69cc15770c1a",
+      "commits": [
+        {
+          "sha": "f5043eb70851240416e22b2b21a0b4f2374e869d",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "fix: fixing bugs that i didnt fix",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/f5043eb70851240416e22b2b21a0b4f2374e869d"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T21:00:36Z"
+  },
+  {
+    "id": "29510096616",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13860115230,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "cf525fbc1c361b4144512261068a69cc15770c1a",
+      "before": "7ab89bd8f44c727b6eec013bfaa5ac7ee5120b5c",
+      "commits": [
+        {
+          "sha": "cf525fbc1c361b4144512261068a69cc15770c1a",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "feat: added a debbug log",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/cf525fbc1c361b4144512261068a69cc15770c1a"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T20:27:27Z"
+  },
+  {
+    "id": "29510076879",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13860102558,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "7ab89bd8f44c727b6eec013bfaa5ac7ee5120b5c",
+      "before": "0beed5eb2f3ed4d8df1be0bee53df6c44819336e",
+      "commits": [
+        {
+          "sha": "7ab89bd8f44c727b6eec013bfaa5ac7ee5120b5c",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "fix: split and properties prase was wrong(?",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/7ab89bd8f44c727b6eec013bfaa5ac7ee5120b5c"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T20:23:48Z"
+  },
+  {
+    "id": "29510058311",
+    "type": "DeleteEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 637546999,
+      "name": "hyduez/hyduez",
+      "url": "https://api.github.com/repos/hyduez/hyduez"
+    },
+    "payload": {
+      "ref": "test",
+      "ref_type": "branch",
+      "pusher_type": "user"
+    },
+    "public": true,
+    "created_at": "2023-06-03T20:20:24Z"
+  },
+  {
+    "id": "29510057890",
+    "type": "CreateEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 637546999,
+      "name": "hyduez/hyduez",
+      "url": "https://api.github.com/repos/hyduez/hyduez"
+    },
+    "payload": {
+      "ref": "test",
+      "ref_type": "branch",
+      "master_branch": "master",
+      "description": null,
+      "pusher_type": "user"
+    },
+    "public": true,
+    "created_at": "2023-06-03T20:20:19Z"
+  },
+  {
+    "id": "29510041686",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 637546999,
+      "name": "hyduez/hyduez",
+      "url": "https://api.github.com/repos/hyduez/hyduez"
+    },
+    "payload": {
+      "repository_id": 637546999,
+      "push_id": 13860079427,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "8843f47d12595a04724f35ae7f329ef9cae2eddd",
+      "before": "321a6a7bc626aabb0bd2676ecd4a65a83ef160ef",
+      "commits": [
+        {
+          "sha": "8843f47d12595a04724f35ae7f329ef9cae2eddd",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "feat(workflow): upgrade max_lines to 10",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/hyduez/commits/8843f47d12595a04724f35ae7f329ef9cae2eddd"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T20:17:37Z"
+  },
+  {
+    "id": "29510021213",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13860066186,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "0beed5eb2f3ed4d8df1be0bee53df6c44819336e",
+      "before": "cd8f23a4360b68b493eb2dc54c94e0d3c1b44c73",
+      "commits": [
+        {
+          "sha": "0beed5eb2f3ed4d8df1be0bee53df6c44819336e",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "fix: conditional was wrong",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/0beed5eb2f3ed4d8df1be0bee53df6c44819336e"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T20:14:21Z"
+  },
+  {
+    "id": "29509998733",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13860051063,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "cd8f23a4360b68b493eb2dc54c94e0d3c1b44c73",
+      "before": "4d12598cb8a9f079c1d59d78fef461d17f4a479f",
+      "commits": [
+        {
+          "sha": "cd8f23a4360b68b493eb2dc54c94e0d3c1b44c73",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "feat(action): validation logic",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/cd8f23a4360b68b493eb2dc54c94e0d3c1b44c73"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T20:10:39Z"
+  },
+  {
+    "id": "29509407475",
+    "type": "WatchEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 452769633,
+      "name": "vercel/satori",
+      "url": "https://api.github.com/repos/vercel/satori"
+    },
+    "payload": {
+      "action": "started"
+    },
+    "public": true,
+    "created_at": "2023-06-03T18:30:43Z",
+    "org": {
+      "id": 14985020,
+      "login": "vercel",
+      "gravatar_id": "",
+      "url": "https://api.github.com/orgs/vercel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/14985020?"
+    }
+  },
+  {
+    "id": "29505124613",
+    "type": "DeleteEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "ref": "w",
+      "ref_type": "branch",
+      "pusher_type": "user"
+    },
+    "public": true,
+    "created_at": "2023-06-03T07:50:39Z"
+  },
+  {
+    "id": "29505091036",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13856949750,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "4d12598cb8a9f079c1d59d78fef461d17f4a479f",
+      "before": "400a6062a596492a9fb81c90a8121cb101a55cd7",
+      "commits": [
+        {
+          "sha": "4d12598cb8a9f079c1d59d78fef461d17f4a479f",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "feat(commander): add empty string to stdout var",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/4d12598cb8a9f079c1d59d78fef461d17f4a479f"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T07:44:36Z"
+  },
+  {
+    "id": "29504904736",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13856836818,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "400a6062a596492a9fb81c90a8121cb101a55cd7",
+      "before": "7848d1dba6fab35a9dacabd5bd8ef9d92906861b",
+      "commits": [
+        {
+          "sha": "400a6062a596492a9fb81c90a8121cb101a55cd7",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "fix(formatter): displayed null value in tag event",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/400a6062a596492a9fb81c90a8121cb101a55cd7"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T07:11:53Z"
+  },
+  {
+    "id": "29504848473",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13856805247,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "7848d1dba6fab35a9dacabd5bd8ef9d92906861b",
+      "before": "178d7cc38d3226d238869fb02cae6711545d19f4",
+      "commits": [
+        {
+          "sha": "7848d1dba6fab35a9dacabd5bd8ef9d92906861b",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "fix(formatter): dead code",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/7848d1dba6fab35a9dacabd5bd8ef9d92906861b"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T07:03:15Z"
+  },
+  {
+    "id": "29504826004",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13856790387,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "178d7cc38d3226d238869fb02cae6711545d19f4",
+      "before": "50c50e7d77c9260547fadfc80ba540960cf50991",
+      "commits": [
+        {
+          "sha": "178d7cc38d3226d238869fb02cae6711545d19f4",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "feat(events): add CreateEvent",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/178d7cc38d3226d238869fb02cae6711545d19f4"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T06:59:13Z"
+  },
+  {
+    "id": "29504763711",
+    "type": "CreateEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "ref": "w",
+      "ref_type": "branch",
+      "master_branch": "master",
+      "description": "Updates README with the recent GitHub activity of a user",
+      "pusher_type": "user"
+    },
+    "public": true,
+    "created_at": "2023-06-03T06:48:00Z"
+  },
+  {
+    "id": "29504099068",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13856335148,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "50c50e7d77c9260547fadfc80ba540960cf50991",
+      "before": "0d8c341feb6a364e7879e441bb80581a93ba4414",
+      "commits": [
+        {
+          "sha": "50c50e7d77c9260547fadfc80ba540960cf50991",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "chore: format and lil fixs",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/50c50e7d77c9260547fadfc80ba540960cf50991"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T04:49:07Z"
+  },
+  {
+    "id": "29504069143",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13856317488,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "0d8c341feb6a364e7879e441bb80581a93ba4414",
+      "before": "783186966ba3064a3f7348896e4846c46d43fb41",
+      "commits": [
+        {
+          "sha": "0d8c341feb6a364e7879e441bb80581a93ba4414",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "fix(content): new lines are ok now",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/0d8c341feb6a364e7879e441bb80581a93ba4414"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T04:43:07Z"
+  },
+  {
+    "id": "29504037832",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13856299908,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "783186966ba3064a3f7348896e4846c46d43fb41",
+      "before": "f5ee46b6226042e80828219afed1440e66efbd83",
+      "commits": [
+        {
+          "sha": "783186966ba3064a3f7348896e4846c46d43fb41",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "fix(ncc): the script was wrong",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/783186966ba3064a3f7348896e4846c46d43fb41"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T04:37:11Z"
+  },
+  {
+    "id": "29503951068",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13856248912,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "f5ee46b6226042e80828219afed1440e66efbd83",
+      "before": "64cfe32729ac5b8af85ae30cef655e51964aeaf9",
+      "commits": [
+        {
+          "sha": "f5ee46b6226042e80828219afed1440e66efbd83",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "second try",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/f5ee46b6226042e80828219afed1440e66efbd83"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T04:21:00Z"
+  },
+  {
+    "id": "29503922428",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13856231005,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "64cfe32729ac5b8af85ae30cef655e51964aeaf9",
+      "before": "337cfa997762b733fac88cb3654025f37ad347e7",
+      "commits": [
+        {
+          "sha": "64cfe32729ac5b8af85ae30cef655e51964aeaf9",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "replace dist to lib",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/64cfe32729ac5b8af85ae30cef655e51964aeaf9"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T04:15:28Z"
+  },
+  {
+    "id": "29503912418",
+    "type": "PushEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 648548991,
+      "name": "hyduez/github-activity-readme",
+      "url": "https://api.github.com/repos/hyduez/github-activity-readme"
+    },
+    "payload": {
+      "repository_id": 648548991,
+      "push_id": 13856225088,
+      "size": 1,
+      "distinct_size": 1,
+      "ref": "refs/heads/master",
+      "head": "337cfa997762b733fac88cb3654025f37ad347e7",
+      "before": "8a786ac2c287eade804d92ed6842071e860e9586",
+      "commits": [
+        {
+          "sha": "337cfa997762b733fac88cb3654025f37ad347e7",
+          "author": {
+            "email": "undevoted@proton.me",
+            "name": "Paulo"
+          },
+          "message": "Building and testing for first time",
+          "distinct": true,
+          "url": "https://api.github.com/repos/hyduez/github-activity-readme/commits/337cfa997762b733fac88cb3654025f37ad347e7"
+        }
+      ]
+    },
+    "public": true,
+    "created_at": "2023-06-03T04:13:45Z"
+  },
+  {
+    "id": "29485209256",
+    "type": "CreateEvent",
+    "actor": {
+      "id": 79933487,
+      "login": "hyduez",
+      "display_login": "hyduez",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hyduez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79933487?"
+    },
+    "repo": {
+      "id": 637546999,
+      "name": "hyduez/hyduez",
+      "url": "https://api.github.com/repos/hyduez/hyduez"
+    },
+    "payload": {
+      "ref": "master",
+      "ref_type": "branch",
+      "master_branch": "master",
+      "description": null,
+      "pusher_type": "user"
+    },
+    "public": true,
+    "created_at": "2023-06-02T09:12:37Z"
+  }
+]
