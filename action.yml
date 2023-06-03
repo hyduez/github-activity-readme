@@ -27,6 +27,7 @@ inputs:
     description: "The file location to write changes to"
     default: "README.md"
     required: false
+    
 branding:
   color: yellow
   icon: activity

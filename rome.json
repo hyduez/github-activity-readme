@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/rome/configuration_schema.json",
+  "organizeImports": {
+    "enabled": false
+  },
+  "formatter": {
+    "enabled": true,
+    "indentSize": 2,
+    "indentStyle": "space",
+    "lineWidth": 120,
+    "formatWithErrors": false
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "style": {
+        "noImplicitBoolean": "error",
+        "useConst": "error",
+        "useTemplate": "error",
+        "noUnusedTemplateLiteral": "error"
+      }
+    }
+  },
+  "files": {
+    "ignore": [".yarn", "dist", "node_modules"]
+  }
+}
