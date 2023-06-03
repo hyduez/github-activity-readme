@@ -37,11 +37,12 @@ export class Writer {
 
         if (content.length < 5) tools.log.info('Found less than 5 activities')
 
+        readmeContent.splice(startIdx + 1, startIdx + 1 + content.length)
+        tools.log.debug(readmeContent)
+        tools.log.debug(content)
+
         if (startIdx !== -1 && endIdx === -1) {
           startIdx++
-
-          const numToRemove = endIdx - startIdx - 1
-          readmeContent.splice(startIdx + 1, numToRemove)
 
           content.forEach((line, idx) => readmeContent.splice(startIdx + idx, 0, `> - [x] ${idx + 1}. ${line}`))
 
@@ -67,7 +68,7 @@ export class Writer {
 
         const readmeActivitySection = readmeContent.slice(startIdx, endIdx)
         if (!readmeActivitySection.length) {
-          content.some((line: any, idx: number) => {
+          content.some((line, idx) => {
             if (!line) {
               return true
             }
