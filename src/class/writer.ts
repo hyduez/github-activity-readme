@@ -73,7 +73,7 @@ export class Writer {
             if (!line) {
               return true
             }
-            readmeContent.splice(startIdx + idx, 0, `${idx + 1}. ${line}`)
+            readmeContent.splice(startIdx + idx, 0, `> ${idx + 1}. ${line}`)
           })
           tools.log.success(`Wrote to ${opts.target_file}`)
         } else {

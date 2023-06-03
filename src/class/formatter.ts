@@ -82,15 +82,14 @@ export class Formatter {
 
   private parseLink(item: Item | string) {
     if (typeof item === 'object') {
-      const url: string = item.payload.html_url ?? null
       return 'comment' in item.payload
-        ? `[${item.payload.comment.path}](${url})`
+        ? `[${item.payload.comment.path}](${item.payload.comment.html_url})`
         : 'issue' in item.payload
-        ? `[#${item.payload.issue.number}](${url})`
+        ? `[#${item.payload.issue.number}](${item.payload.issue.html_url})`
         : 'pull_request' in item.payload
-        ? `[#${item.payload.pull_request.number}](${url})`
+        ? `[#${item.payload.pull_request.number}](${item.payload.pull_request.html_url})`
         : 'release' in item.payload
-        ? `[${item.payload.release.name ?? item.payload.release.tag_name}](${url})`
+        ? `[${item.payload.release.name ?? item.payload.release.tag_name}](${item.payload.release.html_url})`
         : null
     }
 
