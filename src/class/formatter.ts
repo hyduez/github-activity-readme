@@ -115,7 +115,7 @@ export class Formatter {
         : 'ref' in item.payload
         ? `[${item.payload.ref}](${BaseUrl}/${item.repo.name}/tree/${item.payload.ref})`
         : 'forkee' in item.payload
-        ? `[${item.payload.forkee.full_name}](${item.payload.html_url})`
+        ? `[${item.payload.forkee.full_name}](${item.payload.forkee.html_url})`
         : 'issue' in item.payload
         ? `[#${item.payload.issue.number}](${item.payload.issue.html_url})`
         : 'pull_request' in item.payload

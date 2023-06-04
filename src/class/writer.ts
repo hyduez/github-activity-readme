@@ -20,6 +20,7 @@ export class Writer {
       })
 
       tools.log.debug(`Activity for ${opts.gh_username}, ${events.data.length} events found.`)
+      tools.log.debug(JSON.stringify(opts))
 
       const content: string[] = events.data
         .filter((event: { type: string }) => opts.validated[event.type] && event.type in formatter.EventsSerials)
