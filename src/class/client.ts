@@ -14,7 +14,7 @@ export class Action {
     commit_email: core.getInput('COMMIT_EMAIL'),
     commit_msg: core.getInput('COMMIT_MSG'),
     gh_username: core.getInput('GH_USERNAME'),
-    max_lines: core.getInput('MAX_LINES'),
+    max_lines: parseInt(core.getInput('MAX_LINES')),
     target_file: core.getInput('TARGET_FILE'),
     validated: {
       CommitCommentEvent: core.getInput('EVENT_COMMIT_COMMENT').toLowerCase() === 'true',
