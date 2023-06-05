@@ -7,91 +7,106 @@ import { Commander } from './commander'
 export class Writer {
   constructor() {}
 
-  public async run(x: { opts: CommitOpts; commander: Commander; formatter: Formatter }) {
+  public run(x: { opts: CommitOpts; commander: Commander; formatter: Formatter }) {
     const { opts, formatter, commander } = x
-    const tools = new Toolkit()
+    Toolkit.run(
+      async (tools) => {
+        tools.log.debug(`Getting activity for ${opts.gh_username}`)
+        const events = await tools.github.activity.listPublicEventsForUser({
+          username: opts.gh_username,
+          per_page: 100
+        })
+        tools.log.debug(`Activity for ${opts.gh_username}, ${events.data.length} events found.`)
+        tools.log.debug(JSON.stringify(opts))
 
-    try {
-      tools.log.debug(`Getting activity for ${opts.gh_username}`)
+        const content = events.data
+          .filter(
+            (event: { type: string }) => opts.validated[event.type] === true && event.type in formatter.EventsSerials
+          )
+          .slice(0, opts.max_lines)
+          .map((item: Item) => formatter.EventsSerials[item.type](item))
 
-      const events = await tools.github.activity.listPublicEventsForUser({
-        username: opts.gh_username,
-        per_page: 100
-      })
+        const readmeContent = readFileSync(`./${opts.target_file}`, 'utf-8').split('\n')
 
-      tools.log.debug(`Activity for ${opts.gh_username}, ${events.data.length} events found.`)
-      tools.log.debug(JSON.stringify(opts))
+        let startIdx = readmeContent.findIndex((content) => content.trim() === '<!--START_SECTION:activity-->')
 
-      const content: string[] = events.data
-        .filter((event: { type: string }) => opts.validated[event.type] && event.type in formatter.EventsSerials)
-        .slice(0, parseInt(opts.max_lines))
-        .map((item: Item) => formatter.EventsSerials[item.type](item))
+        if (startIdx === -1)
+          return tools.exit.failure(`Couldn't find the <!--START_SECTION:activity--> comment. Exiting!`)
 
-      const readme = readFileSync(`./${opts.target_file}`, 'utf-8').split('\n')
+        const endIdx = readmeContent.findIndex((content) => content.trim() === '<!--END_SECTION:activity-->')
 
-      let startIdx = readme.findIndex((content) => content.trim() === '<!--START_SECTION:activity-->')
+        if (!content.length) tools.exit.success('No events found. Leaving README unchanged with previous activity')
 
-      if (startIdx === -1)
-        return tools.exit.failure(`Couldn't find the <!--START_SECTION:activity--> comment. Exiting!`)
+        if (content.length < 5) tools.log.info('Found less than 5 activities')
 
-      const endIdx = readme.findIndex((content) => content.trim() === '<!--END_SECTION:activity-->')
+        if (startIdx !== -1 && endIdx === -1) {
+          startIdx++
 
-      if (!content.length) return tools.exit.success('No events found. Leaving README unchanged with previous activity')
-      if (content.length < 5) tools.log.info('Found less than 5 activities')
+          content.forEach((line: any, idx: number) =>
+            readmeContent.splice(startIdx + idx, 0, `> - [x] ${idx + 1}. ${line}`)
+          )
 
-      if (startIdx !== -1 && endIdx === -1) {
+          readmeContent.splice(startIdx + content.length, 0, '<!--END_SECTION:activity-->')
+
+          writeFileSync(`./${opts.target_file}`, readmeContent.join('\n'))
+
+          try {
+            await commander.commitCommand(opts)
+          } catch (err) {
+            tools.log.debug('Something went wrong')
+            return tools.exit.failure(err)
+          }
+          tools.exit.success('Wrote to README')
+        }
+
+        const oldContent = readmeContent.slice(startIdx + 1, endIdx).join('\n')
+        const newContent = content.map((line: any, idx: number) => `> - [x] ${idx + 1}. ${line}`).join('\n')
+
+        if (oldContent.trim() === newContent.trim()) tools.exit.success('No changes detected')
+
         startIdx++
 
-        content.forEach((line, idx) => readme.splice(startIdx + idx, 0, `> - [x] ${idx + 1}. ${line}`))
+        const readmeActivitySection = readmeContent.slice(startIdx, endIdx)
+        if (!readmeActivitySection.length) {
+          content.some((line: any, idx: number) => {
+            if (!line) {
+              return true
+            }
 
-        readme.splice(startIdx + content.length, 0, '<!--END_SECTION:activity-->')
+            readmeContent.splice(startIdx + idx, 0, `> - [x] ${idx + 1}. ${line}`)
+          })
 
-        writeFileSync(`./${opts.target_file}`, readme.join('\n'))
+          tools.log.success(`Wrote to ${opts.target_file}`)
+        } else {
+          let count = 0
 
-        await commander.commitCommand(opts)
-        return tools.exit.success('Wrote to README')
+          readmeActivitySection.some((line, idx) => {
+            if (!content[count]) return true
+
+            if (line !== '') {
+              readmeContent[startIdx + idx] = `> - [x] ${count + 1}. ${content[count]}`
+              count++
+            }
+          })
+
+          tools.log.success(`Updated ${opts.target_file} with the recent activity`)
+        }
+
+        writeFileSync(`./${opts.target_file}`, readmeContent.join('\n'))
+
+        try {
+          await commander.commitCommand(opts)
+        } catch (err) {
+          tools.log.debug('Something went wrong')
+          return tools.exit.failure(err)
+        }
+
+        tools.exit.success('Pushed to remote repository')
+      },
+      {
+        event: ['schedule', 'workflow_dispatch'],
+        secrets: ['GITHUB_TOKEN']
       }
-
-      const oldContent = readme.slice(startIdx + 1, endIdx).join('\n')
-      const newContent = content.map((line, idx) => `> - [x] ${idx + 1}. ${line}`).join('\n')
-
-      if (oldContent.trim() === newContent.trim()) return tools.exit.success('No changes detected')
-
-      startIdx++
-
-      const readmeActivitySection = readme.slice(startIdx, endIdx)
-      if (!readmeActivitySection.length) {
-        content.some((line, idx) => {
-          if (!line) {
-            return true
-          }
-
-          readme.splice(startIdx + idx, 0, `> - [x] ${idx + 1}. ${line}`)
-        })
-
-        tools.log.success(`Wrote to ${opts.target_file}`)
-      } else {
-        let count = 0
-
-        readmeActivitySection.some((line, idx) => {
-          if (!content[count]) return true
-
-          if (line !== '') {
-            readme[startIdx + idx] = `> - [x] ${count + 1}. ${content[count]}`
-            count++
-          }
-        })
-
-        tools.log.success(`Updated ${opts.target_file} with the recent activity`)
-      }
-
-      writeFileSync(`./${opts.target_file}`, readme.join('\n'))
-
-      await commander.commitCommand(opts)
-      tools.exit.success('Pushed to remote repository')
-    } catch (err) {
-      tools.log.debug('Something went wrong')
-      tools.exit.failure(err)
-    }
+    )
   }
 }
