@@ -6,7 +6,7 @@ export enum Emojis {
   CreateEventTag = '🔖',
   DeleteEventBranch = '🗑️',
   DeleteEventTag = '🗑️🔖',
-  ForkEvent = '🍴',
+  ForkEvent = '🧮',
   GollumEvent = '📚',
   IssueCommentEventCreated = '💬',
   IssueCommentEventEdited = '✏️💬',
