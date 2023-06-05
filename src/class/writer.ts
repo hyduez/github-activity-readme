@@ -28,6 +28,9 @@ export class Writer {
 
         const readmeContent = readFileSync(`./${opts.target_file}`, 'utf-8').split('\n')
 
+        tools.log.debug(JSON.stringify(content))
+        tools.log.debug(JSON.stringify(readmeContent))
+
         let startIdx = readmeContent.findIndex((content) => content.trim() === '<!--START_SECTION:activity-->')
 
         if (startIdx === -1)
@@ -62,6 +65,9 @@ export class Writer {
         const oldContent = readmeContent.slice(startIdx + 1, endIdx).join('\n')
         const newContent = content.map((line: any, idx: number) => `> - [x] ${idx + 1}. ${line}`).join('\n')
 
+        tools.log.debug(JSON.stringify(oldContent))
+        tools.log.debug(JSON.stringify(newContent))
+
         if (oldContent.trim() === newContent.trim()) tools.exit.success('No changes detected')
 
         startIdx++
@@ -91,6 +97,8 @@ export class Writer {
 
           tools.log.success(`Updated ${opts.target_file} with the recent activity`)
         }
+
+        tools.log.debug(JSON.stringify(readmeActivitySection))
 
         writeFileSync(`./${opts.target_file}`, readmeContent.join('\n'))
 
