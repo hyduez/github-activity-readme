@@ -5,10 +5,10 @@ export class Formatter {
 
   public EventsSerials: Record<string, (item: Item) => string> = {
     CommitCommentEvent: (item) => {
-      const { x: origin } = this.parseLink(item) as { x: string }
+      const { x: origin, y: commit } = this.parseLink(item) as { x: string, y: string }
       const repository = this.parseLink(item.repo.name)
       const action = `${Emojis.CommitCommentEventCreated} Created`
-      const line = `${action} ${origin} in ${repository}`
+      const line = `${action} ${origin} at ${commit} in ${repository}`
       return line
     },
     CreateEvent: (item) => {
@@ -144,7 +144,11 @@ export class Formatter {
       return 'comment' in item.payload
         ? {
             x: `[comment](${item.payload.comment.html_url})`,
-            y: item.payload.issue ? `[#${item.payload.issue.number}](${item.payload.issue.html_url})` : null
+            y: item.payload.issue
+              ? `[#${item.payload.issue.number}](${item.payload.issue.html_url})`
+              : `[${item.payload.comment.commit_id.slice(0, 7)}](${BaseUrl}/${item.repo.name}/commit/${
+                  item.payload.comment.commit_id
+                })`
           }
         : 'push_id' in item.payload
         ? item.payload.size == 1
