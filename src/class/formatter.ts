@@ -144,7 +144,7 @@ export class Formatter {
       return 'comment' in item.payload
         ? {
             x: `[comment](${item.payload.comment.html_url})`,
-            y: `[#${item.payload.issue.number}](${item.payload.issue.html_url})`
+            y: `[#${item.payload.issue.number}](${item.payload.issue.html_url})` ?? null
           }
         : 'push_id' in item.payload
         ? item.payload.size == 1
