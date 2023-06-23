@@ -19,6 +19,10 @@ inputs:
     description: "Enable logging for ForkEvent event"
     default: "true"
     required: false
+  EVENT_ISSUECOMMENT:
+    description: "Enable logging for IssueCommentEvent event"
+    default: "false"
+    required: false
   EVENT_ISSUES:
     description: "Enable logging for IssuesEvent event"
     default: "true"

@@ -21,6 +21,7 @@ export class Action {
       CreateEvent: core.getInput('EVENT_CREATE').toLowerCase() === 'true',
       DeleteEvent: core.getInput('EVENT_DELETE').toLowerCase() === 'true',
       ForkEvent: core.getInput('EVENT_FORK').toLocaleLowerCase() === 'true',
+      IssueCommentEvent: core.getInput('EVENT_ISSUECOMMENT').toLocaleLowerCase() === 'true',
       IssuesEvent: core.getInput('EVENT_ISSUES').toLowerCase() === 'true',
       PullRequestEvent: core.getInput('EVENT_PULL_REQUEST').toLowerCase() === 'true',
       ReleaseEvent: core.getInput('EVENT_RELEASE').toLowerCase() === 'true'

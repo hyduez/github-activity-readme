@@ -5,7 +5,7 @@ export class Formatter {
 
   public EventsSerials: Record<string, (item: Item) => string> = {
     CommitCommmentEvent: (item) => {
-      const origin = this.parseLink(item)
+      const { x: origin } = this.parseLink(item) as { x: string }
       const repository = this.parseLink(item.repo.name)
       const type = item.payload.action
       const action = type === 'created' ? `${Emojis.CommitCommentEventCreated} Commented` : null
@@ -33,6 +33,30 @@ export class Formatter {
       const repository = this.parseLink(item.repo.name)
       const action = `${Emojis.ForkEvent} Forked`
       const line = `${action} ${repository} on ${origin}`
+      return line
+    },
+    GollumEvent: (item) => {
+      const origin = this.parseLink(item)
+      const repository = this.parseLink(item.repo.name)
+      const action = `${Emojis.GollumEvent} Created page`
+      const line = `${action} ${origin} on ${repository}`
+      return line
+    },
+    IssueCommentEvent: (item) => {
+      const { x: origin, y: issue } = this.parseLink(item) as { x: string; y: string }
+      const repository = this.parseLink(item.repo.name)
+      const type: string = item.payload.action
+      const action =
+        type === 'created'
+          ? `${Emojis.IssueCommentEventCreated} Created`
+          : type === 'deleted'
+          ? `${Emojis.IssueCommentEventDeleted} Deleted`
+          : type === 'edited'
+          ? `${Emojis.IssueCommentEventEdited} Edited`
+          : type === 'changes'
+          ? `${Emojis.IssueCommentEventChanges} Changes`
+          : null
+      const line = `${action} ${origin} at ${issue} on ${repository}`
       return line
     },
     IssuesEvent: (item) => {
@@ -111,7 +135,10 @@ export class Formatter {
   private parseLink(item: Item | string) {
     if (typeof item === 'object') {
       return 'comment' in item.payload
-        ? `[${item.payload.comment.path}](${item.payload.comment.html_url})`
+        ? {
+            x: `[comment](${item.payload.comment.html_url})`,
+            y: `[#${item.payload.issue.number}](${item.payload.issue.html_url})`
+          }
         : 'ref' in item.payload
         ? `[${item.payload.ref}](${BaseUrl}/${item.repo.name}/tree/${item.payload.ref})`
         : 'forkee' in item.payload
@@ -122,6 +149,8 @@ export class Formatter {
         ? `[#${item.payload.pull_request.number}](${item.payload.pull_request.html_url})`
         : 'release' in item.payload
         ? `[${item.payload.release.name ?? item.payload.release.tag_name}](${item.payload.release.html_url})`
+        : 'pages' in item.payload
+        ? `[${item.payload.pages.title}](${item.payload.pages.html_url})`
         : null
     }
 
