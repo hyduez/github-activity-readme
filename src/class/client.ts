@@ -21,9 +21,10 @@ export class Action {
       CreateEvent: core.getInput('EVENT_CREATE').toLowerCase() === 'true',
       DeleteEvent: core.getInput('EVENT_DELETE').toLowerCase() === 'true',
       ForkEvent: core.getInput('EVENT_FORK').toLocaleLowerCase() === 'true',
-      IssueCommentEvent: core.getInput('EVENT_ISSUECOMMENT').toLocaleLowerCase() === 'true',
+      IssueCommentEvent: core.getInput('EVENT_ISSUE_COMMENT').toLocaleLowerCase() === 'true',
       IssuesEvent: core.getInput('EVENT_ISSUES').toLowerCase() === 'true',
       PullRequestEvent: core.getInput('EVENT_PULL_REQUEST').toLowerCase() === 'true',
+      PushEvent: core.getInput('EVENT_PUSH').toLocaleLowerCase() === 'true',
       ReleaseEvent: core.getInput('EVENT_RELEASE').toLowerCase() === 'true'
     }
   }

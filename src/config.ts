@@ -20,7 +20,7 @@ export enum Emojis {
   IssueEventUnassigned = '👥❌',
   IssueEventLabeled = '🏷️✅',
   IssueEventUnlabeled = '🏷️❌',
-  MemberEventAdded = '👥➕',
+  MemberEventAdded = '👥',
   PullRequestEventOpened = '🌟',
   PullRequestEventEdited = '✏️🌟',
   PullRequestEventClosed = '🛑',

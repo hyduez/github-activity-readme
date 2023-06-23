@@ -19,7 +19,7 @@ inputs:
     description: "Enable logging for ForkEvent event"
     default: "true"
     required: false
-  EVENT_ISSUECOMMENT:
+  EVENT_ISSUE_COMMENT:
     description: "Enable logging for IssueCommentEvent event"
     default: "false"
     required: false
@@ -30,6 +30,10 @@ inputs:
   EVENT_PULL_REQUEST:
     description: "Enable logging for PullRequestEvent event"
     default: "true"
+    required: false
+  EVENT_PUSH:
+    description: "Enable logging for PushEvent event"
+    default: "false"
     required: false
   EVENT_RELEASE:
     description: "Enable logging for ReleaseEvent event"

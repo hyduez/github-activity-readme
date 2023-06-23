@@ -7,8 +7,7 @@ export class Formatter {
     CommitCommmentEvent: (item) => {
       const { x: origin } = this.parseLink(item) as { x: string }
       const repository = this.parseLink(item.repo.name)
-      const type = item.payload.action
-      const action = type === 'created' ? `${Emojis.CommitCommentEventCreated} Commented` : null
+      const action = `${Emojis.CommitCommentEventCreated} Commented`
       const line = `${action} on ${origin} in ${repository}`
       return line
     },
@@ -46,15 +45,16 @@ export class Formatter {
       const { x: origin, y: issue } = this.parseLink(item) as { x: string; y: string }
       const repository = this.parseLink(item.repo.name)
       const type: string = item.payload.action
+      const localeAction = this.localeUpperCase(type)
       const action =
         type === 'created'
-          ? `${Emojis.IssueCommentEventCreated} Created`
+          ? `${Emojis.IssueCommentEventCreated} ${localeAction}`
           : type === 'deleted'
-          ? `${Emojis.IssueCommentEventDeleted} Deleted`
+          ? `${Emojis.IssueCommentEventDeleted} ${localeAction}`
           : type === 'edited'
-          ? `${Emojis.IssueCommentEventEdited} Edited`
+          ? `${Emojis.IssueCommentEventEdited} ${localeAction}`
           : type === 'changes'
-          ? `${Emojis.IssueCommentEventChanges} Changes`
+          ? `${Emojis.IssueCommentEventChanges} ${localeAction}`
           : null
       const line = `${action} ${origin} at ${issue} on ${repository}`
       return line
@@ -62,8 +62,8 @@ export class Formatter {
     IssuesEvent: (item) => {
       const origin = this.parseLink(item)
       const repository = this.parseLink(item.repo.name)
-      const localeAction = this.localeUpperCase(item.payload.action)
       const type: string = item.payload.action
+      const localeAction = this.localeUpperCase(type)
       const action =
         type === 'opened'
           ? `${Emojis.IssueEventOpened} ${localeAction}`
@@ -88,8 +88,8 @@ export class Formatter {
     PullRequestEvent: (item) => {
       const origin = this.parseLink(item)
       const repository = this.parseLink(item.repo.name)
-      const localeAction = this.localeUpperCase(item.payload.action)
-      const type = item.payload.action
+      const type: string = item.payload.action
+      const localeAction = this.localeUpperCase(type)
       const merged = item.payload.pull_request.merged
       const action = merged
         ? `${Emojis.PullRequestEventMerged} Merged`
@@ -119,11 +119,18 @@ export class Formatter {
       const line = `${action} ${origin} in ${repository}`
       return line
     },
+    PushEvent: (item) => {
+      const origin = this.parseLink(item)
+      const repository = this.parseLink(item.repo.name)
+      const action = `${Emojis.PushEvent} Pushed`
+      const line = `${action} ${origin} on ${repository}`
+      return line
+    },
     ReleaseEvent: (item) => {
       const origin = this.parseLink(item)
       const repository = this.parseLink(item.repo.name)
-      const localeAction = this.localeUpperCase(item.payload.action)
-      const type = item.payload.action
+      const type: string = item.payload.action
+      const localeAction = this.localeUpperCase(type)
       const action = type === 'published' ? `${Emojis.ReleaseEventCreated} ${localeAction}` : null
       const line = `${action} ${origin} in ${repository}`
       return line
@@ -139,6 +146,10 @@ export class Formatter {
             x: `[comment](${item.payload.comment.html_url})`,
             y: `[#${item.payload.issue.number}](${item.payload.issue.html_url})`
           }
+        : 'push_id' in item.payload
+        ? item.payload.size == 1
+          ? `[${item.payload.commits[0].message}](${BaseUrl}/${item.repo.name}/commit/${item.payload.commits[0].sha})`
+          : `[${item.payload.size} commits](${BaseUrl}/${item.repo.name}/tree/${item.payload.ref})`
         : 'ref' in item.payload
         ? `[${item.payload.ref}](${BaseUrl}/${item.repo.name}/tree/${item.payload.ref})`
         : 'forkee' in item.payload
