@@ -4,11 +4,11 @@ export class Formatter {
   constructor() {}
 
   public EventsSerials: Record<string, (item: Item) => string> = {
-    CommitCommmentEvent: (item) => {
+    CommitCommentEvent: (item) => {
       const { x: origin } = this.parseLink(item) as { x: string }
       const repository = this.parseLink(item.repo.name)
-      const action = `${Emojis.CommitCommentEventCreated} Commented`
-      const line = `${action} on ${origin} in ${repository}`
+      const action = `${Emojis.CommitCommentEventCreated} Created`
+      const line = `${action} ${origin} in ${repository}`
       return line
     },
     CreateEvent: (item) => {
@@ -31,14 +31,14 @@ export class Formatter {
       const origin = this.parseLink(item)
       const repository = this.parseLink(item.repo.name)
       const action = `${Emojis.ForkEvent} Forked`
-      const line = `${action} ${repository} on ${origin}`
+      const line = `${action} ${repository} in ${origin}`
       return line
     },
     GollumEvent: (item) => {
       const origin = this.parseLink(item)
       const repository = this.parseLink(item.repo.name)
       const action = `${Emojis.GollumEvent} Created page`
-      const line = `${action} ${origin} on ${repository}`
+      const line = `${action} ${origin} in ${repository}`
       return line
     },
     IssueCommentEvent: (item) => {
@@ -56,7 +56,7 @@ export class Formatter {
           : type === 'changes'
           ? `${Emojis.IssueCommentEventChanges} ${localeAction}`
           : null
-      const line = `${action} ${origin} at ${issue} on ${repository}`
+      const line = `${action} ${origin} at ${issue} in ${repository}`
       return line
     },
     IssuesEvent: (item) => {
@@ -123,7 +123,7 @@ export class Formatter {
       const origin = this.parseLink(item)
       const repository = this.parseLink(item.repo.name)
       const action = `${Emojis.PushEvent} Pushed`
-      const line = `${action} ${origin} on ${repository}`
+      const line = `${action} ${origin} in ${repository}`
       return line
     },
     ReleaseEvent: (item) => {
