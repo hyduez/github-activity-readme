@@ -14,7 +14,6 @@ export class Action {
     commit_email: this.get('COMMIT_EMAIL'),
     commit_msg: this.get('COMMIT_MSG'),
     gh_username: this.get('GH_USERNAME'),
-    max_lines: this.get('MAX_LINES'),
     target_file: this.get('TARGET_FILE'),
     validated: {
       CommitCommentEvent: this.check('EVENT_COMMIT_COMMENT'),

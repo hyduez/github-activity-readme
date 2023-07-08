@@ -137,8 +137,8 @@ export class Formatter {
     },
     WatchEvent: (item) => {
       const repository = this.parseLink(item.repo.name)
-      const action = `${Emojis.WatchEventStarted} Starred`
-      const line = `${action} ${repository}!`
+      const action = `${Emojis.WatchEventStarted} Added a star to`
+      const line = `${action} ${repository}`
       return line
     }
   }

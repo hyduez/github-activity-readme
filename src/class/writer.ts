@@ -4,6 +4,8 @@ import { CommitOpts, Item } from '../config'
 import { Formatter } from './formatter'
 import { Commander } from './commander'
 
+// this is pending to refactor (date: 7-7-23)
+
 export class Writer {
   constructor() {}
 
@@ -24,7 +26,7 @@ export class Writer {
 
       const content: string[] = events.data
         .filter((event: { type: string }) => opts.validated[event.type] && event.type in formatter.EventsSerials)
-        .slice(0, opts.max_lines)
+        .slice(0, 5)
         .map((item: Item) => formatter.EventsSerials[item.type](item))
 
       const readme = readFileSync(`./${opts.target_file}`, 'utf-8').split('\n')

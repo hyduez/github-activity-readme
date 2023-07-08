@@ -50,7 +50,6 @@ export interface CommitOpts {
   commit_msg: string
   commit_name: string
   gh_username: string
-  max_lines: string
   target_file: string
   validated: Record<string, boolean>
 }
