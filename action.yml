@@ -39,6 +39,10 @@ inputs:
     description: "Enable logging for ReleaseEvent event"
     default: "true"
     required: false
+  EVENT_WATCH:
+    description: "Enable logging for WatchEvent event"
+    default: "false"
+    required: false
   COMMIT_EMAIL:
     description: "Email of the committer"
     default: "41898282+github-actions[bot]@users.noreply.github.com"

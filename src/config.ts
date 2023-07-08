@@ -20,7 +20,7 @@ export enum Emojis {
   IssueEventUnassigned = '👥❌',
   IssueEventLabeled = '🏷️✅',
   IssueEventUnlabeled = '🏷️❌',
-  MemberEventAdded = '👥',
+  MemberEventAdded = '👥', // pending bc yes
   PullRequestEventOpened = '🌟',
   PullRequestEventEdited = '✏️🌟',
   PullRequestEventClosed = '🛑',
@@ -41,7 +41,7 @@ export enum Emojis {
   PushEvent = '📌',
   ReleaseEventCreated = '🚀',
   ReleaseEventChanges = '🔄🚀',
-  SponsorshipEventCreated = '💖',
+  SponsorshipEventCreated = '💖', // pending bc yes
   WatchEventStarted = '⭐'
 }
 
@@ -50,7 +50,7 @@ export interface CommitOpts {
   commit_msg: string
   commit_name: string
   gh_username: string
-  max_lines: number
+  max_lines: string
   target_file: string
   validated: Record<string, boolean>
 }

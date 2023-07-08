@@ -10,22 +10,24 @@ export class Action {
   public Writer = new Writer()
 
   public config: CommitOpts = {
-    commit_name: core.getInput('COMMIT_NAME'),
-    commit_email: core.getInput('COMMIT_EMAIL'),
-    commit_msg: core.getInput('COMMIT_MSG'),
-    gh_username: core.getInput('GH_USERNAME'),
-    max_lines: parseInt(core.getInput('MAX_LINES')),
-    target_file: core.getInput('TARGET_FILE'),
+    commit_name: this.get('COMMIT_NAME'),
+    commit_email: this.get('COMMIT_EMAIL'),
+    commit_msg: this.get('COMMIT_MSG'),
+    gh_username: this.get('GH_USERNAME'),
+    max_lines: this.get('MAX_LINES'),
+    target_file: this.get('TARGET_FILE'),
     validated: {
-      CommitCommentEvent: core.getInput('EVENT_COMMIT_COMMENT').toLowerCase() === 'true',
-      CreateEvent: core.getInput('EVENT_CREATE').toLowerCase() === 'true',
-      DeleteEvent: core.getInput('EVENT_DELETE').toLowerCase() === 'true',
-      ForkEvent: core.getInput('EVENT_FORK').toLocaleLowerCase() === 'true',
-      IssueCommentEvent: core.getInput('EVENT_ISSUE_COMMENT').toLocaleLowerCase() === 'true',
-      IssuesEvent: core.getInput('EVENT_ISSUES').toLowerCase() === 'true',
-      PullRequestEvent: core.getInput('EVENT_PULL_REQUEST').toLowerCase() === 'true',
-      PushEvent: core.getInput('EVENT_PUSH').toLocaleLowerCase() === 'true',
-      ReleaseEvent: core.getInput('EVENT_RELEASE').toLowerCase() === 'true'
+      CommitCommentEvent: this.check('EVENT_COMMIT_COMMENT'),
+      CreateEvent: this.check('EVENT_CREATE'),
+      DeleteEvent: this.check('EVENT_DELETE'),
+      ForkEvent: this.check('EVENT_FORK'),
+      GollumEvent: this.check('EVENT_GOLLUM'),
+      IssueCommentEvent: this.check('EVENT_ISSUE_COMMENT'),
+      IssuesEvent: this.check('EVENT_ISSUES'),
+      PullRequestEvent: this.check('EVENT_PULL_REQUEST'),
+      PushEvent: this.check('EVENT_PUSH'),
+      ReleaseEvent: this.check('EVENT_RELEASE'),
+      WatchEvent: this.check('EVENT_WATCH')
     }
   }
 
@@ -35,5 +37,13 @@ export class Action {
       commander: this.Commander,
       formatter: this.Formatter
     })
+  }
+
+  private get(str: string) {
+    return core.getInput(str)
+  }
+
+  private check(name: string) {
+    return this.get(name).toLocaleLowerCase() === 'true'
   }
 }

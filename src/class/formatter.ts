@@ -5,7 +5,7 @@ export class Formatter {
 
   public EventsSerials: Record<string, (item: Item) => string> = {
     CommitCommentEvent: (item) => {
-      const { x: origin, y: commit } = this.parseLink(item) as { x: string, y: string }
+      const { x: origin, y: commit } = this.parseLink(item) as { x: string; y: string }
       const repository = this.parseLink(item.repo.name)
       const action = `${Emojis.CommitCommentEventCreated} Created`
       const line = `${action} ${origin} at ${commit} in ${repository}`
@@ -133,6 +133,12 @@ export class Formatter {
       const localeAction = this.localeUpperCase(type)
       const action = type === 'published' ? `${Emojis.ReleaseEventCreated} ${localeAction}` : null
       const line = `${action} ${origin} in ${repository}`
+      return line
+    },
+    WatchEvent: (item) => {
+      const repository = this.parseLink(item.repo.name)
+      const action = `${Emojis.WatchEventStarted} Starred`
+      const line = `${action} ${repository}!`
       return line
     }
   }
