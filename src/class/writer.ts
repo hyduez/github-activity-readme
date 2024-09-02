@@ -5,6 +5,7 @@ import { Formatter } from './formatter'
 import { Commander } from './commander'
 
 // this is pending to refactor (date: 7-7-23)
+// i wont refactor it (date: 9-1-24)
 
 export class Writer {
   constructor() {}
@@ -44,7 +45,7 @@ export class Writer {
       if (startIdx !== -1 && endIdx === -1) {
         startIdx++
 
-        content.forEach((line, idx) => readme.splice(startIdx + idx, 0, `> - [x] ${idx + 1}. ${line}`))
+        content.forEach((line, idx) => readme.splice(startIdx + idx, 0, `- ${line}`))
 
         readme.splice(startIdx + content.length, 0, '<!--END_SECTION:activity-->')
 
@@ -55,7 +56,7 @@ export class Writer {
       }
 
       const oldContent = readme.slice(startIdx + 1, endIdx).join('\n')
-      const newContent = content.map((line, idx) => `> - [x] ${idx + 1}. ${line}`).join('\n')
+      const newContent = content.map((line, _idx) => `- ${line}`).join('\n')
 
       if (oldContent.trim() === newContent.trim()) return tools.exit.success('No changes detected')
 
@@ -69,7 +70,7 @@ export class Writer {
             return true
           }
 
-          readme.splice(startIdx + idx, 0, `> - [x] ${idx + 1}. ${line}`)
+          readme.splice(startIdx + idx, 0, `- ${line}`)
         })
 
         tools.log.success(`Wrote to ${opts.target_file}`)
@@ -80,7 +81,7 @@ export class Writer {
           if (!content[count]) return true
 
           if (line !== '') {
-            readme[startIdx + idx] = `> - [x] ${count + 1}. ${content[count]}`
+            readme[startIdx + idx] = `- ${content[count]}`
             count++
           }
         })
