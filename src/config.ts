@@ -38,7 +38,7 @@ export enum Emojis {
   PullRequestReviewCommentEventChanges = '🔄💬👀',
   PullRequestReviewThreadEventResolved = '✅👀',
   PullRequestReviewThreadEventUnresolved = '❌👀',
-  PushEvent = '📌',
+  PushEvent = '🍤',
   ReleaseEventCreated = '🚀',
   ReleaseEventChanges = '🔄🚀',
   SponsorshipEventCreated = '💖', // pending bc yes
