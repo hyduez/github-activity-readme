@@ -10,6 +10,7 @@ export class Action {
   public Writer = new Writer()
 
   public config: CommitOpts = {
+    ignored_repos: this.get('IGNORED_REPOS'),
     commit_name: this.get('COMMIT_NAME'),
     commit_email: this.get('COMMIT_EMAIL'),
     commit_msg: this.get('COMMIT_MSG'),
@@ -39,7 +40,9 @@ export class Action {
   }
 
   private get(str: string) {
-    return core.getInput(str)
+    if (str === 'IGNORED_REPOS') {
+      return core.getInput(str).toLocaleLowerCase().split(' ')
+    } else return core.getInput(str)
   }
 
   private check(name: string) {

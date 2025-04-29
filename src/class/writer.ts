@@ -26,7 +26,12 @@ export class Writer {
       tools.log.debug(JSON.stringify(opts))
 
       const content: string[] = events.data
-        .filter((event: { type: string }) => opts.validated[event.type] && event.type in formatter.EventsSerials)
+        .filter(
+          (event: { type: string }) =>
+            opts.validated[event.type] &&
+            event.type in formatter.EventsSerials &&
+            !opts.ignored_repos.includes(event.repo.name.toLocaleLowerCase())
+        )
         .slice(0, 5)
         .map((item: Item) => formatter.EventsSerials[item.type](item))
 
