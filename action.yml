@@ -63,7 +63,7 @@ inputs:
     description: "The file location to write changes to"
     default: "README.md"
     required: false
-  IGNORE_REPOS:
+  IGNORED_REPOS:
     description: "Repository's name that will be ignored"
     default: ""
     required: false
