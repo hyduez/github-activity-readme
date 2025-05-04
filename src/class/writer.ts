@@ -32,7 +32,7 @@ export class Writer {
             event.type in formatter.EventsSerials &&
             !opts.ignored_repos.includes(event.repo.name.toLocaleLowerCase())
         )
-        .slice(0, 5)
+        .slice(0, 15)
         .map((item: Item) => formatter.EventsSerials[item.type](item))
 
       const readme = readFileSync(`./${opts.target_file}`, 'utf-8').split('\n')
@@ -45,7 +45,7 @@ export class Writer {
       const endIdx = readme.findIndex((content) => content.trim() === '<!--END_SECTION:activity-->')
 
       if (!content.length) return tools.exit.success('No events found. Leaving README unchanged with previous activity')
-      if (content.length < 5) tools.log.info('Found less than 5 activities')
+      if (content.length < 15) tools.log.info('Found less than 15 activities')
 
       if (startIdx !== -1 && endIdx === -1) {
         startIdx++
