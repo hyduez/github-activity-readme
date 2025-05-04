@@ -6,7 +6,7 @@ export enum Emojis {
   CreateEventTag = '🔖',
   DeleteEventBranch = '🗑️',
   DeleteEventTag = '🗑️🔖',
-  ForkEvent = '🍽',
+  ForkEvent = '🌌',
   GollumEvent = '📚',
   IssueCommentEventCreated = '💬',
   IssueCommentEventEdited = '✏️💬',
@@ -38,7 +38,7 @@ export enum Emojis {
   PullRequestReviewCommentEventChanges = '🔄💬👀',
   PullRequestReviewThreadEventResolved = '✅👀',
   PullRequestReviewThreadEventUnresolved = '❌👀',
-  PushEvent = '🍤',
+  PushEvent = '🍱',
   ReleaseEventCreated = '🚀',
   ReleaseEventChanges = '🔄🚀',
   SponsorshipEventCreated = '💖', // pending bc yes
