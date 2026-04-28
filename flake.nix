@@ -3,25 +3,38 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    utils.url = "github:numtide/flake-utils";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-compat = {
+      url = "github:edolstra/flake-compat";
+      flake = false;
+    };
+    # sops-nix.url = "github:mic92/sops-nix";
+    # sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
+  outputs = inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [ inputs.treefmt-nix.flakeModule ];
 
-  outputs = { self, nixpkgs, utils }: 
-    utils.lib.eachDefaultSystem (
-  system: let
-    pkgs = import nixpkgs { inherit system; };
+      systems = [ "x86_64-linux" ];
 
-  in {
-        devShell = pkgs.mkShell {
-          packages = with pkgs; [
-            nodejs_latest
-            yarn
-          ];
+      perSystem = { config, pkgs, ... }: {
+        formatter = config.treefmt.build.wrapper;
+
+        devShells.default = pkgs.mkShell {
+          packages = with pkgs; [ bashInteractive nodejs_latest bun ];
         };
 
-        formatter = pkgs.nixfmt-rfc-style;
-
-      }
-  );
-
+        treefmt = {
+          projectRootFile = "flake.nix";
+          programs = {
+            nixfmt.enable = true;
+            deadnix.enable = true;
+            biome.enable = true;
+            biome.formatUnsafe = true;
+          };
+          settings = { formatter = { biome.excludes = [ "lib/index.js" ]; }; };
+        };
+      };
+    };
 }
