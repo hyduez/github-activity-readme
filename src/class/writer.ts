@@ -36,7 +36,7 @@ export class Writer {
 						event.type in formatter.EventsSerials &&
 						!opts.ignored_repos.includes(event.repo.name.toLocaleLowerCase()),
 				)
-				.slice(0, 15)
+				.slice(0, 5)
 				.map((item: Item) => formatter.EventsSerials[item.type](item));
 
 			const readme = readFileSync(`./${opts.target_file}`, "utf-8").split("\n");
