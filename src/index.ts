@@ -1,3 +1,3 @@
-import { Action } from './class/client'
+import { Action } from "./class/client";
 
-new Action()
+new Action();
